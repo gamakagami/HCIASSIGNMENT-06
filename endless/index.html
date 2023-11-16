@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waifu</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+body {
+  margin: 0;
+  font-family: serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: whitesmoke;
+}
+h1 {
+  font-size: 3.5vw;
+  margin-bottom: 20px;
+}
+.waifu-content {
+  font-size: 2vw;
+  line-height: 1.6;
+  color: #333;
+  padding-left: 10px;
+}
+.waifu-content p {
+  margin-bottom: 15px;
+}
+.waifu-content p:last-child {
+  margin-bottom: 0;
+} 
+  </style>
+</head>
+<body>
+<h1>What is waifu?</h1>
+  <div class="waifu-content">
+    <p>Waifu is a term for a fictional character, usually in anime or related media, that someone has great, and sometimes romantic, affection for.
+    </p>
+    <p>Waifu originates as a Japanese borrowing and rendering of the English word wife. Evidence for the term in Japanese dates back to at least the 1980s, when some younger Japanese people may have adopted wife as an alternative to the gender limitations implied by the traditional term, kanai, which literally means “inside the house.”</p>
+    <p>Waifu developed a more specialized meaning in English-speaking anime and manga culture, however, in the 2000s. In the 2002 anime Azumanga Daioh, some students find a photograph a teacher has dropped and ask who the woman in it is. The teacher replies “my wife” in English, which is often transcribed as mai waifu thanks to Japanese pronunciation and transliteration practices.</p>  
+    <p>Anime fans began using waifu to refer to a character they were particularly fond of, one they viewed as being special to them. The earliest Urban Dictionary entry for this use of the word dates from 2007, and there’s evidence that the term dates back in its anime sense to at least 2006. It also spread outside the anime fandom, so that characters from video games or even live-action television shows can also be called waifu.</p>    
+</div>  
+<script>
+    $(document).ready(function() {
+      function appendContent() {
+        $(".waifu-content").append($(".waifu-content").html());
+      }
+      $(window).scroll(function() {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+          appendContent();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
