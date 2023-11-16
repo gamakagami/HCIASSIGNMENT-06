@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="num">Phone number:</label>
+        <input type="text" id="num" name="num" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#contactForm').submit(function (event) {
+                // Prevent the default form submission
+                event.preventDefault();
+
+                var valid = true;
+
+                if ($('#name').val() === '') {
+                    $('#nameError').text('Name is required');
+                    valid = false;
+                }
+
+                if ($('#email').val() === '') {
+                    $('#emailError').text('Email is required');
+                    valid = false;
+                }
+
+                if ($('#message').val() === '') {
+                    $('#messageError').text('Message is required');
+                    valid = false;
+                }
+                if (valid) {
+                    alert('Form submitted successfully!\n\nName: ' + $('#name').val() + '\nEmail: ' + $('#email').val() + '\nMessage: ' + $('#message').val());
+                }
+            });
+        });
+    </script>
+
+</body>
+</html> 
