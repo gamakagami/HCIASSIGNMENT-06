@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">              
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        .gallery img {
+          width: 100%;
+          height: 100%;
+        }
+        .nav{
+            width:100%;
+            height:12%;
+        }
+        .gallery {
+          margin-right: 10px;
+          margin-left:2px;
+          border: 2px solid #ddd;
+          width: 30%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          background-color: burlywood;
+          display: flex;
+          float: left;
+        }
+        .jean{
+            display: flex;
+        }
+        .filters{
+            text-align: center;
+        }
+        #filters button {
+            background-color: rgb(47, 255, 75);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <center><h1>Gallery</h1></center>
+    <center>
+    <div id="filters">
+        <button data-filter="all">All</button>
+        <button data-filter="blonde">Blonde</button>
+        <button data-filter="black">Black</button>
+        <button data-filter="purple">Purple</button>
+    </div>
+    </center>   
+    <div id="imageGallery">
+        <div class="gallery blonde">
+        <img src="jquery jean.webp" width="200" height="400" alt="jean">
+    </div>
+    <div class="gallery black">
+        <img src="jquery akame.jpg" width="200" height="400" alt="akame">
+    </div>
+    <div class="gallery purple">
+        <img src="jquery shogun.jpg" width="200" height="400" alt="shogun">
+    </div>
+    </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            // Filter images based on button click
+            $("#filters button").click(function () {
+                var filterValue = $(this).data("filter");
+    
+                // Show all images if the "All" button is clicked
+                if (filterValue === "all") {
+                    $("#imageGallery .gallery").show();
+                } else {
+                    // Otherwise, hide all images and show only those with the selected filter
+                    $("#imageGallery .gallery").hide();
+                    $("#imageGallery .gallery." + filterValue).show();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
