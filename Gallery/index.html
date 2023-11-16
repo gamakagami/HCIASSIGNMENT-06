@@ -67,15 +67,12 @@
     </div>
     <script>
         $(document).ready(function () {
-            // Filter images based on button click
             $("#filters button").click(function () {
                 var filterValue = $(this).data("filter");
     
-                // Show all images if the "All" button is clicked
                 if (filterValue === "all") {
                     $("#imageGallery .gallery").show();
                 } else {
-                    // Otherwise, hide all images and show only those with the selected filter
                     $("#imageGallery .gallery").hide();
                     $("#imageGallery .gallery." + filterValue).show();
                 }
